@@ -1,219 +1,174 @@
-Welcome to ospgui's Documentation
-=================================
+ospgui User Guide
+=================
 
-Table of Contents
------------------
-
-- `Installation`_
-- `Launching the GUI`_
-- `Features`_
-- `Limitations`_
-- `Examples`_
-
-.. _installation:
+.. contents::
+   :local:
+   :depth: 2
 
 Installation
 ============
 
-Graphical User Interface
-------------------------
-
-The ``ospgui`` provides a graphical interface for creating and visualising
-bridge grillage models without writing Python code directly. It is built with
-PyQt5 and distributed as an optional extension to Ospgrillage.
+``ospgui`` is a graphical interface for creating and visualizing bridge grillage models without writing Python code. It is built with **PyQt5** and distributed as an optional extension to **Ospgrillage**.
 
 .. note::
-   ospgui is an optional tool. To install:
+   To use ``ospgui``, **Ospgrillage must be installed** first. Then, install the GUI with:
 
    .. code-block:: bash
 
       pip install ospgrillage[gui]
 
-.. _launching-gui:
-
 Launching the GUI
 =================
 
-Once installed, the GUI can be started from the command line with:
+After installation, launch the GUI from the command line:
 
 .. code-block:: bash
 
    ospgui
 
-This will open the *ospgui* window as shown below.
-.. image:: _static/gui_screenshot.png
-   :alt: GUI Screenshot
-   :width: 600px
-   :align: center
+Getting Started
+===============
 
-.. _features:
+To get started with ``ospgui``:
+
+1. Click **Apply Changes**, then **Create Geometry**.  
+2. Once your geometry is created, you can adjust properties as needed.  
+3. Use the GUI to generate the necessary files:
+   - OpenSees command file  
+   - Ospgrillage code  
+   - Bridge deck mesh for analysis  
 
 Features
 ========
 
-- Interactive geometry setup (straight, multi-span, and curved bridges).
-- Material and section property assignment.
-- Member assignment (interior beams, edge beams).
-- Automatic generation of Python code for Ospgrillage models.
-- Optional export to OpenSees command file.
-- Integrated visualisation of the generated grillage model.
+`ospgui` streamlines bridge geometry creation with an intuitive interface. Key features include:
 
-.. _limitations:
-
-Limitations
-===========
-
-- Oblique mesh does not currently apply skew to longitudinal beams.
-- Curved bridge functionality is preliminary.
-- Some advanced analysis and loading options must still be defined in code.
-
-.. _examples:
-
-.. _ospgui-user-guide:
-
-osp-gui User Guide
-==================
-
-Introduction
-------------
-The `osp-gui` is a graphical user interface for generating OpenSeesPy scripts for bridge analysis. This guide provides a detailed walkthrough of all the features and tabs available in the application window.
-
-.. figure:: _images/ospgui-init.png
-   :alt: Main `osp-gui` Window
-   :align: center
-   
-   The main window of the `osp-gui` application.
+- **Interactive Geometry Setup**: Create straight, multi-span, skewed, or curved bridge geometries.  
+- **Material and Section Assignment**: Choose from preset materials or define custom properties; assign cross-section details for all bridge members.  
+- **Member Control**: Configure internal and edge beams, spacing, and offsets.  
+- **Automatic Code Generation**: Generates Python scripts for Ospgrillage models and optionally OpenSees command files.  
+- **Visualization**: Integrated visual feedback for the generated bridge mesh.  
+- **Powerful Code View**: Users can review, edit, and execute **any Python script** directly in the GUI. You can also load external Python files from the File menu.
 
 User Interface Overview
------------------------
-The main window is organized into several tabs, allowing you to input different types of data for your bridge model. On the top, you'll find a menu bar with **File** and **Run Analysis** options. The main panel is divided into two sections: the **Input Panels** on the left and the **Code View** on the right.
+=======================
 
-|
+`ospgui` allows users to generate **OpenSeesPy scripts** for bridge mesh without manually writing Python scripts. The main window consists of:
 
-File Menu
----------
-* **New**: Start a new project.
-* **Open**: Open an existing project file.
-* **Save**: Save the current project.
-* **Exit**: Close the application.
+- **Menu Bar**: **File** and **Create Geometry** options.  
+- **Input Panels** (left): Tabs for geometry, materials, sections, and members.  
+- **Code View** (right): Displays the generated Ospgrillage script, which can be edited and executed.
 
-Run Analysis Menu
------------------
-* **Run Analysis**: Executes the code in the 'Code View'.
+Menu Bar
+--------
 
-|
+**File Menu**
+
+- **New**: Start a new project  
+- **Open**: Open an existing project  
+- **Save**: Save current project  
+- **Exit**: Close the application  
+
+**Create Geometry Menu**
+
+- **Create Geometry**: Executes the script shown in the **Code View**. The button 'Create Geometry' at the bottom left of ospgui has the same functionality as this.
 
 Input Panels
 ------------
-The input panels are organized into four tabs: **Geometry**, **Materials**, **Sections**, and **Members**.
 
-.. _geometry-tab:
+The left-side panel has four tabs:
+
+- **Geometry**
+- **Materials**
+- **Sections**
+- **Members**
 
 Geometry Tab
-++++++++++++
-This tab allows you to define the fundamental geometric properties and meshing of your bridge.
+------------
+
+Define the bridge’s geometric and mesh properties.
 
 .. figure:: _images/geometry_tab.png
    :alt: Geometry Tab in `ospgui`
    :align: center
 
-   The Geometry Tab with basic bridge parameters and mesh settings.
+**Basic Geometry**
 
-* **Basic Geometry**
-    * **Bridge Name**: A name for your bridge model.
-    * **Length**: The total length of the bridge (e.g., 30.00 m).
-    * **Width**: The total width of the bridge (e.g., 10.00 m).
-    * **Left Skew Angle**: The skew angle on the left side (e.g., 0.00 degrees).
-    * **Right Skew Angle**: The skew angle on the right side (e.g., 0.00 degrees).
+- **Bridge Name**: Name of your model  
+- **Length & Width**: Overall dimensions  
+- **Left/Right Skew Angle**: Skew of bridge ends  
 
-* **Mesh Settings**
-    * **Bridge Type**: Defines the overall structural type (e.g., `Straight`).
-    * **Longitudinal Beams**: The number of beams along the length of the bridge (e.g., `5`).
-    * **Transverse Beams**: The number of beams across the width of the bridge (e.g., `10`).
-    * **Mesh Type**: The type of mesh to be generated (e.g., `Ortho`).
+**Mesh Settings**
 
-* **Output Mode**
-    * **Opensees Command File**: Generates the OpenSees script file.
-    * **Visualization**: Displays a graphical representation of the generated mesh.
+- **Bridge Type**: Straight, Multi-span, or Curved  
+- **Longitudinal Beams**: Beams along the bridge length  
+- **Transverse Beams**: Beams across the width  
+- **Mesh Type**: Ortho or Oblique  
 
-.. _materials-tab:
+**Output Mode**
+
+- **OpenSees Command File**: Export script for OpenSees  
+- **Visualization**: Display the generated mesh  
 
 Materials Tab
-+++++++++++++
-Define the material properties for the bridge components.
+-------------
+
+Define material properties for bridge components.
 
 .. figure:: _images/materials_tab.png
    :alt: Materials Tab in `ospgui`
    :align: center
 
-   The Materials Tab for defining material properties.
-
-* **Material Properties**
-    * **Material Type**: Select the type of material (e.g., `Concrete`).
-    * **Standard Code Options**:
-        * **Standard Code (Preset)**: Choose a standard code for material properties (e.g., `AS5100-2017`).
-        * **Grade of material**: Select a specific grade or strength (e.g., `32MPa`).
-        * **Use Preset?**: Use the predefined values from the selected code.
-        * **Custom Values**: Manually enter custom material properties.
-
-.. _sections-tab:
+- **Material Type**: Concrete, Steel, etc.  
+- **Preset Options**: Select standard codes and grades (e.g., AS5100-2017, 32MPa)  
+- **Custom Values**: Manually input properties  
 
 Sections Tab
-++++++++++++
-This tab is for defining the cross-sectional properties of the bridge members.
+------------
+
+Define cross-sectional properties of bridge members.
 
 .. figure:: _images/sections_tab.png
    :alt: Sections Tab in `ospgui`
    :align: center
 
-   The Sections Tab for defining cross-sectional properties of beams.
-
-* **Longitudinal Section**
-    * Defines properties for the main longitudinal beams.
-    * Parameters include **Area (A)**, **Torsional Constant (J)**, **Moment of Inertia (Iz)**, **Moment of Inertia (Iy)**, **Shear Area (Az)**, and **Shear Area (Ay)**.
-
-* **Transverse Section**
-    * Defines properties for the transverse beams.
-    * Parameters include **Area (A)**, **Torsional Constant (J)**, **Moment of Inertia (Iz)**, **Moment of Inertia (Iy)**, **Shear Area (Az)**, **Shear Area (Ay)**, and **Unit Width**.
-
-* **End Transverse Section**
-    * Defines properties for the transverse beams at the ends of the bridge.
-    * Includes the same set of parameters as the Longitudinal and Transverse sections.
-
-* **Edge Longitudinal Section**
-    * Defines properties for the longitudinal beams at the edges of the bridge.
-    * Includes the same set of parameters as the other sections.
-
-.. _members-tab:
+- **Longitudinal Section**: Main beams  
+- **Transverse Section**: Internal transverse beams  
+- **End Transverse Section**: Beams at bridge ends  
+- **Edge Longitudinal Section**: Edge beams  
 
 Members Tab
-+++++++++++
-This tab defines the spacing and offset for the bridge members.
+-----------
+
+Set member spacing and offsets.
 
 .. figure:: _images/members_tab.png
    :alt: Members Tab in `ospgui`
    :align: center
 
-   The Members Tab for defining member spacing and edge offsets.
-
-* **External to Internal distance**: Defines the spacing between the external and internal members (e.g., `2.50 m`).
-* **Edge Beams**: Defines the offset of the edge beams from the overall bridge width (e.g., `0.50 m`).
-
-|
+- **External to Internal Distance**: Spacing between external and internal beams  
+- **Edge Beams**: Offset from bridge edge  
 
 Code View
 ---------
-The **Code View** is a powerful panel on the right that displays the generated ospgrillage script based on your input parameters. This allows you to review and edit the script before generating the geometry.
 
-|
+The **Code View** displays the generated **Ospgrillage script**, which can be:
+
+- Reviewed and edited directly in the GUI  
+- Executed using the **Create Geometry** button  
+- Loaded with any external Python file via the File menu  
 
 Generation and Visualization
 ----------------------------
-* **Apply Changes**: Makes changes to the code in the 'Code View' panel to account for currently selected parameters.
-* **Create Geometry**: Generates the model and displays a visualization if the **Visualization** option is selected or generates a command file in the same directory if the **Opensees command file** is selected in the Geometry tab.
+
+- **Apply Changes**: Updates the code based on current input parameters  
+- **Create Geometry**: Generates the bridge model  
+
+Depending on the **Output Mode**, this either:
+
+- Shows a visualization of the bridge mesh  
+- Exports an OpenSees command file  
 
 .. figure:: _images/visualization.png
    :alt: Visualization of Generated Bridge Mesh
    :align: center
-
-   An example of the generated bridge mesh visualization.
