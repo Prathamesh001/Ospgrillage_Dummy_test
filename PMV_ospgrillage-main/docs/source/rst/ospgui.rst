@@ -99,7 +99,7 @@ File Menu
 
 Run Analysis Menu
 -----------------
-* **Run Analysis**: Executes the OpenSeesPy script based on the current inputs.
+* **Run Analysis**: Executes the code in the 'Code View'.
 
 |
 
@@ -113,8 +113,8 @@ Geometry Tab
 ++++++++++++
 This tab allows you to define the fundamental geometric properties and meshing of your bridge.
 
-.. figure:: _images/geometry-tab.png
-   :alt: Geometry Tab in `osp-gui`
+.. figure:: _images/geometry_tab.png
+   :alt: Geometry Tab in `ospgui`
    :align: center
 
    The Geometry Tab with basic bridge parameters and mesh settings.
@@ -142,8 +142,8 @@ Materials Tab
 +++++++++++++
 Define the material properties for the bridge components.
 
-.. figure:: _images/materials-tab.png
-   :alt: Materials Tab in `osp-gui`
+.. figure:: _images/materials_tab.png
+   :alt: Materials Tab in `ospgui`
    :align: center
 
    The Materials Tab for defining material properties.
@@ -162,8 +162,8 @@ Sections Tab
 ++++++++++++
 This tab is for defining the cross-sectional properties of the bridge members.
 
-.. figure:: _images/sections-tab.png
-   :alt: Sections Tab in `osp-gui`
+.. figure:: _images/sections_tab.png
+   :alt: Sections Tab in `ospgui`
    :align: center
 
    The Sections Tab for defining cross-sectional properties of beams.
@@ -190,8 +190,8 @@ Members Tab
 +++++++++++
 This tab defines the spacing and offset for the bridge members.
 
-.. figure:: _images/members-tab.png
-   :alt: Members Tab in `osp-gui`
+.. figure:: _images/members_tab.png
+   :alt: Members Tab in `ospgui`
    :align: center
 
    The Members Tab for defining member spacing and edge offsets.
@@ -203,19 +203,17 @@ This tab defines the spacing and offset for the bridge members.
 
 Code View
 ---------
-The **Code View** panel on the right displays the generated OpenSeesPy script based on your input parameters. This allows you to review the script before running the analysis.
+The **Code View** is a powerful panel on the right that displays the generated ospgrillage script based on your input parameters. This allows you to review and edit the script before generating the geometry.
 
 |
 
 Generation and Visualization
 ----------------------------
-* **Apply Changes**: Saves the current parameters to be used in script generation.
-* **Create Geometry**: Generates the model and displays a visualization if the **Visualization** option is selected in the Geometry tab.
+* **Apply Changes**: Makes changes to the code in the 'Code View' panel to account for currently selected parameters.
+* **Create Geometry**: Generates the model and displays a visualization if the **Visualization** option is selected or generates a command file in the same directory if the **Opensees command file** is selected in the Geometry tab.
 
-.. figure:: _images/visualization-example.png
+.. figure:: _images/visualization.png
    :alt: Visualization of Generated Bridge Mesh
    :align: center
 
    An example of the generated bridge mesh visualization.
-
-This visualization shows the nodes (red and green dots) and members (blue lines) of the bridge model.
