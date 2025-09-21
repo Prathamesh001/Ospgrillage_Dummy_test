@@ -1,0 +1,25 @@
+numpy
+openseespy
+matplotlib
+pytest>=6.1.1
+pandas
+setuptools
+scipy
+xarray
+opsvis
+vfo
+pydata-sphinx-theme
+recommonmark
+Sphinx
+nbsphinx
+sphinx-rtd-theme
+sphinxcontrib-applehelp
+sphinxcontrib-devhelp
+sphinxcontrib-htmlhelp
+sphinxcontrib-jsmath
+sphinxcontrib-qthelp
+sphinxcontrib-serializinghtml
+pandoc
+markupsafe==2.0.1
+pygments >= 2.7
+-e .
